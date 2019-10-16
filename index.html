@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Peter's 40th Bday Party</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Peter Turns 40</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="puzzle_pdfs/Location_Puzzle.pdf" target="_blank">Puzzle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="puzzle_pdfs/Hint_1.pdf" target="_blank">Hint 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="puzzle_pdfs/Hint_2.pdf" target="_blank">Hint 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="puzzle_pdfs/Hint_3.pdf" target="_blank">Hint 3</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">Peter Turns 40</h1>
+        <img class="img-fluid" src="img/buscemi.jpg" alt="">
+        <p class="mt-4">
+          Hey Friends! I'm turning 40 and excited to celebrate with you. We'll be solving a puzzle hunt from Mystery League at a local Chicago bar. I'm covering the hunt, and ordering some pizza for everyone. Beers (if you want one) are on you :-)
+        </p>
+        <p class="mt-4">
+          <b>
+            Click on the puzzle button (in the navbar) to view the Location Puzzle and find out where we're celebrating. Submit your solution below when you're ready!
+          </b>
+        </p>
+        <form>
+          <div class="form-group">
+            <label for="Solution">Solution:</label>
+            <input type="text" class="form-control" id="puzz_soln" aria-describedby="Solution" placeholder="Enter your answer here">
+          </div>
+        </form>
+        <button class="btn btn-primary btn-xl rounded-pill mt-5" id="check_answer">Check Answer</button>
+        <div id='response'></div>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+<script>
+$(document).ready(function(){
+    $('#check_answer').click(function(){
+        var $alert_box_div = $('<div>', {
+          'id': 'alert-box-div',
+          'class': 'alert alert-dismissable mt-3', 
+        })
+        var $alert_box_button = $('<button>', {
+          'type': 'button',
+          'id': 'alert-box-button',
+          'class': 'close',
+          'data-dismiss': 'alert',
+          'aria-label': 'Close'
+        })
+        var $alert_box_span = $('<span>', {
+          'aria-hidden': 'true'
+        }).html('&times;')
+
+        var answer = $('#puzz_soln').val().toLowerCase()
+        if (answer === 'arid cola'){
+          $alert_box_div.addClass('alert-success')
+          $alert_box_div.text("Correct! We'll see you at Empirical Brewery (1801 W. Foster Ave. 60640) at 3:00pm on Nov. 16th for beer/pizza/puzzle hunt shenanigans. Can't wait!  --Peter")
+        }
+        else {
+          $alert_box_div.addClass('alert-warning')
+          $alert_box_div.text("Hmmm...that's not quite right")
+        }
+        $('#response').prepend($alert_box_div)
+        $alert_box_div.append($alert_box_button)
+        $alert_box_button.append($alert_box_span)
+    }) 
+});
+</script>
+
+</html>
